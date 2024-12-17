@@ -1,15 +1,13 @@
 type Query {
-  hello: String!
-  getPerson(name: String, age: Int): String
-  getInt(age: Int!): Int
-  getFloat: Float
-  getString: String
-  getBoolean: Boolean
-  getId: ID
-  getNumbers(numbers: [Int!]!): [Int]
-  getProduct: Product!
+  product(id: ID!): Product
+  products: [Product!]!
 }
-# Comentario
+
+type Mutation {
+  addProduct(dto: CreateProductDto!): Product
+  updateProduct(id: ID!, dto: UpdateProductDto!): Product
+  deleteProduct(id: ID!): ID
+}
 
 type Product {
   id: ID!
@@ -18,4 +16,20 @@ type Product {
   description: String!
   image: String!
   createdAt: String!
+}
+
+input CreateProductDto {
+  name: String!
+  price: Int!
+  description: String!
+  image: String!
+  categoryId: ID!
+}
+
+input UpdateProductDto {
+  name: String
+  price: Int
+  description: String
+  image: String
+  categoryId: ID
 }
