@@ -1,5 +1,6 @@
 const { product, products, addProduct, updateProduct, deleteProduct } = require('./product.resolvers')
 const { login } =  require("./auth.resolvers")
+const { addCategory } =  require("./category.resolvers")
 
 const resolvers = {
   Query: {
@@ -10,7 +11,8 @@ const resolvers = {
     login,
     addProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    addCategory
   }
 }
 
