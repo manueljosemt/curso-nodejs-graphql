@@ -11,7 +11,7 @@ const addCategory = async (_, {dto}, context) => {
   if (!user) {
     throw boom.unauthorized('jwt is not valid')
   }
-  return service.create(dto)
+  return service.create({...dto, image: dto.image.href})
 }
 
 module.exports = {addCategory}
